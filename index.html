@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATISIRAN | Future Medicine</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+:root {
+  --bg: #070b16;
+  --panel: #101a2c;
+  --cyan: #58f6ff;
+  --purple: #a78bfa;
+  --pink: #ff69b4;
+  --text: #edf5ff;
+  --muted: #9aadc6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 75% 15%, #17254b, transparent 45%),
+    radial-gradient(ellipse at 10% 90%, #17113b, transparent 40%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  height: 65px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #293750;
+  background: #080d19;
+}
+
+.logo {
+  font: 800 17px Orbitron, sans-serif;
+  letter-spacing: 2px;
+}
+
+.logo span { color: var(--cyan); }
+
+.system {
+  color: var(--cyan);
+  font: 11px Orbitron, sans-serif;
+}
+
+main {
+  max-width: 1150px;
+  margin: 25px auto 95px;
+  padding: 0 20px;
+}
+
+.slide {
+  display: none;
+  min-height: 570px;
+  padding: 38px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #2d4564;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #111d31, #090f1c);
+  box-shadow: 0 0 45px #101e3a80;
+}
+
+.slide.active {
+  display: block;
+  animation: appear .35s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font: 11px Orbitron, sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font: 800 clamp(42px, 7vw, 80px) Orbitron, sans-serif;
+  margin: 20px 0;
+  letter-spacing: 3px;
+}
+
+h1 span { color: var(--cyan); }
+
+h2 { line-height: 1.5; }
+
+p {
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-copy h2 {
+  font-size: clamp(20px, 3vw, 29px);
+}
+
+.kicker {
+  color: var(--purple);
+  font: 11px Orbitron, sans-serif;
+  letter-spacing: 2px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.tags span {
+  color: var(--cyan);
+  border: 1px solid #385a70;
+  padding: 8px 11px;
+  border-radius: 6px;
+  font-size: 10px;
+}
+
+.universe {
+  height: 330px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.orbit {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #58f6ff70;
+  border-radius: 50%;
+  transform: rotate(-30deg) scaleY(.65);
+  box-shadow: 0 0 25px #58f6ff12;
+  animation: rotate 18s linear infinite;
+}
+
+.orbit.two {
+  width: 300px;
+  height: 300px;
+  border-color: #a78bfa80;
+  transform: rotate(55deg) scaleY(.6);
+  animation-direction: reverse;
+}
+
+@keyframes rotate {
+  to { rotate: 360deg; }
+}
+
+.core {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--cyan);
+  background: #10243a;
+  box-shadow: 0 0 40px #58f6ff40;
+  font: 700 18px Orbitron, sans-serif;
+  z-index: 1;
+}
+
+.float {
+  position: absolute;
+  padding: 9px 13px;
+  border: 1px solid #425977;
+  border-radius: 8px;
+  background: #101c30;
+  font: 11px Orbitron, sans-serif;
+}
+
+.f1 { top: 20px; left: 3%; color: var(--cyan); }
+.f2 { bottom: 28px; right: 3%; color: var(--pink); }
+.f3 { top: 45%; right: 0; color: var(--purple); }
+
+.section-title {
+  font-size: clamp(23px, 3vw, 32px);
+  margin: 0 0 12px;
+}
+
+.section-desc { margin-bottom: 30px; }
+
+.process {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.card {
+  padding: 20px;
+  min-height: 220px;
+  border: 1px solid #304965;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #17263c, #0c1423);
+}
+
+.step-no {
+  color: var(--muted);
+  font: 10px Orbitron, sans-serif;
+}
+
+.molecule {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 22px auto;
+  font: 700 13px Orbitron, sans-serif;
+  background: #101a2c;
+}
+
+.purple {
+  color: var(--purple);
+  border: 1px solid var(--purple);
+  box-shadow: 0 0 20px #a78bfa20;
+}
+
+.cyan {
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  box-shadow: 0 0 20px #58f6ff20;
+}
+
+.pink {
+  color: var(--pink);
+  border: 1px solid var(--pink);
+}
+
+.card h3 { font-size: 15px; }
+.card p { font-size: 12px; }
+.arrow { color: var(--cyan); font-size: 25px; }
+
+.notice {
+  margin-top: 24px;
+  border-left: 3px solid var(--cyan);
+  background: #58f6ff0c;
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #d1e5f5;
+}
+
+.simulator {
+  max-width: 760px;
+  margin: auto;
+  border: 1px solid #304965;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a1322;
+}
+
+.sim-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #293c54;
+  font-size: 12px;
+}
+
+#simStatus { color: var(--cyan); }
+
+.cell {
+  margin: 22px auto;
+  width: 84%;
+  min-height: 270px;
+  padding: 18px;
+  border: 2px dashed #47658b;
+  border-radius: 45% 45% 35% 35%;
+  background: radial-gradient(ellipse, #1a2d4c, #101728);
+  text-align: center;
+}
+
+.cell-title {
+  color: #b7c9e2;
+  font: 10px Orbitron, sans-serif;
+  margin-bottom: 20px;
+}
+
+.row-molecule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+  font-size: 12px;
+}
+
+.node {
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #111e32;
+  font: 700 12px Orbitron, sans-serif;
+  transition: .5s;
+}
+
+.node.si { color: var(--cyan); border: 1px solid var(--cyan); }
+.node.mr { color: var(--pink); border: 1px solid var(--pink); }
+.node.ri { color: #9bbaff; border: 1px solid #9bbaff; }
+
+.down { color: #718ba9; }
+
+.proteins {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px;
+  transition: .5s;
+}
+
+.proteins i {
+  width: 15px;
+  height: 15px;
+  display: block;
+  border-radius: 50%;
+  background: #ffd479;
+  box-shadow: 0 0 12px #ffd47950;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 15px 20px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  padding: 12px 17px;
+  font-weight: 700;
+  background: var(--cyan);
+  color: #07131b;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: #40536d;
+}
+
+button:disabled { opacity: .4; cursor: default; }
+
+.result {
+  padding: 15px 20px;
+  border-top: 1px solid #293c54;
+  background: #101c2d;
+  text-align: center;
+}
+
+.result strong {
+  color: var(--cyan);
+  font: 12px Orbitron, sans-serif;
+}
+
+.result p { font-size: 12px; margin-bottom: 0; }
+
+.simulator.finished .node.mr {
+  opacity: .2;
+  transform: translateY(18px) rotate(12deg);
+}
+
+.simulator.finished .proteins {
+  opacity: .15;
+  transform: scale(.65);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.summary-card {
+  padding: 22px;
+  border: 1px solid #304965;
+  border-radius: 13px;
+  background: #101b2d;
+}
+
+.summary-card .number {
+  color: var(--cyan);
+  font: 700 28px Orbitron, sans-serif;
+}
+
+.summary-card h3 { font-size: 15px; }
+.summary-card p { font-size: 12px; }
+
+.final-box {
+  padding: 25px;
+  border-left: 3px solid var(--cyan);
+  background: linear-gradient(90deg, #58f6ff12, transparent);
+}
+
+.final-box span {
+  color: var(--purple);
+  font: 10px Orbitron, sans-serif;
+  letter-spacing: 2px;
+}
+
+.final-box h3 { font-size: 22px; line-height: 1.8; }
+
+.small-note {
+  font-size: 10px;
+  color: #71849d;
+  margin-top: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%;
+  background: #080d19ee;
+  border-top: 1px solid #293750;
+  backdrop-filter: blur(12px);
+}
+
+.progress-area {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--muted);
+  font: 11px Orbitron, sans-serif;
+}
+
+#pageNumber { color: var(--cyan); }
+
+.progress {
+  width: 100px;
+  height: 3px;
+  background: #28364c;
+}
+
+#progressBar {
+  height: 100%;
+  width: 25%;
+  background: var(--cyan);
+  transition: width .3s;
+}
+
+@media(max-width: 760px) {
+  header { padding: 0 15px; }
+  .system { font-size: 8px; }
+  main { padding: 0 10px; }
+  .slide { padding: 25px 18px; min-height: 620px; }
+  .hero { grid-template-columns: 1fr; }
+  .universe { height: 230px; }
+  .orbit { width: 180px; height: 180px; }
+  .orbit.two { width: 220px; height: 220px; }
+  .core { width: 85px; height: 85px; font-size: 14px; }
+  .process { grid-template-columns: 1fr; }
+  .card { min-height: auto; }
+  .molecule { margin: 15px auto; }
+  .arrow { text-align: center; transform: rotate(90deg); }
+  .summary-grid { grid-template-columns: 1fr; }
+  .cell { width: 100%; }
+  .progress { width: 50px; }
+  footer { padding: 10px; }
+  footer button { padding: 10px; font-size: 11px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">◈ BIO<span>FUTURE</span></div>
+  <div class="system">● SYSTEM ONLINE</div>
+</header>
+
+<main>
+
+<!-- SLIDE 1 -->
+<section class="slide active">
+  <div class="eyebrow">01 / RESEARCH OVERVIEW</div>
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="kicker">NEXT GENERATION RNA THERAPY</div>
+      <h1>PA<span>TISI</span>RAN</h1>
+      <h2>유전 정보의 흐름을 조절하는 미래 의학</h2>
+      <p>
+        RNA 간섭 기술을 이용해 질병을 유발하는 단백질의 생성을 줄이는
+        파티시란의 작용 원리를 탐구한다.
+      </p>
+      <div class="tags">
+        <span>RNAi TECHNOLOGY</span>
+        <span>GENETIC MEDICINE</span>
+        <span>FUTURE BIOLOGY</span>
+      </div>
+    </div>
+
+    <div class="universe">
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+      <div class="core">RNA<br>INTERFERENCE</div>
+      <div class="float f1">siRNA</div>
+      <div class="float f2">TTR PROTEIN</div>
+      <div class="float f3">mRNA</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide">
+  <div class="eyebrow">02 / MECHANISM</div>
+  <h2 class="section-title">약물은 어떻게 단백질 생성을 줄일까?</h2>
+  <p class="section-desc">
+    파티시란은 siRNA를 이용해 TTR 단백질 생성에 필요한 mRNA를 표적으로 삼는다.
+  </p>
+
+  <div class="process">
+    <article class="card">
+      <div class="step-no">STEP 01</div>
+      <div class="molecule purple">siRNA</div>
+      <h3>간세포로 전달</h3>
+      <p>지질 나노입자가 siRNA를 간세포 안으로 전달한다.</p>
+    </article>
+
+    <div class="arrow">→</div>
+
+    <article class="card">
+      <div class="step-no">STEP 02</div>
+      <div class="molecule cyan">mRNA</div>
+      <h3>표적 인식 및 분해</h3>
+      <p>siRNA가 RISC 복합체와 함께 TTR mRNA를 표적으로 삼는다.</p>
+    </article>
+
+    <div class="arrow">→</div>
+
+    <article class="card">
+      <div class="step-no">STEP 03</div>
+      <div class="molecule pink">TTR ↓</div>
+      <h3>단백질 생성 감소</h3>
+      <p>mRNA가 줄어들면서 TTR 단백질 생성도 감소한다.</p>
+    </article>
+  </div>
+
+  <div class="notice">
+    핵심 원리: DNA 자체를 편집하는 것이 아니라,
+    단백질을 만드는 데 필요한 mRNA를 표적으로 삼는다.
+  </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide">
+  <div class="eyebrow">03 / INTERACTIVE SIMULATION</div>
+  <h2 class="section-title">RNA 간섭 시뮬레이션</h2>
+  <p class="section-desc">
+    약물 작용 실행 버튼을 눌러 작용 전후의 변화를 관찰해 보자.
+  </p>
+
+  <div class="simulator" id="simulator">
+    <div class="sim-head">
+      <span>간세포 분자 모형</span>
+      <span id="simStatus">● 대기 중</span>
+    </div>
+
+    <div class="cell">
+      <div class="cell-title">LIVER CELL / CONCEPT MODEL</div>
+
+      <div class="row-molecule">
+        <div class="node si">siRNA</div>
+        <span>표적 유전 정보 조절</span>
+      </div>
+
+      <div class="down">↓</div>
+
+      <div class="row-molecule">
+        <div class="node mr" id="mrnaNode">TTR mRNA</div>
+        <span id="mrnaLabel">mRNA 존재</span>
+      </div>
+
+      <div class="down">↓</div>
+
+      <div class="row-molecule">
+        <div class="node ri">리보솜</div>
+        <span id="proteinLabel">단백질 생성 가능</span>
+      </div>
+
+      <div class="proteins" id="proteins">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="runButton">▶ 약물 작용 실행</button>
+      <button class="secondary" id="resetButton">↻ 초기화</button>
+    </div>
+
+    <div class="result" id="result">
+      <strong>READY</strong>
+      <p>약물 작용 실행 버튼을 누르면 결과가 표시됩니다.</p>
+    </div>
+  </div>
+
+  <p class="small-note">
+    교육용 모형으로 실제 세포의 분자 구조와 반응 속도를 단순화해 표현했습니다.
+    막대나 입자의 변화는 실제 임상 측정값이 아닙니다.
+  </p>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide">
+  <div class="eyebrow">04 / CONCLUSION</div>
+  <h2 class="section-title">유전 정보 조절에서 시작되는 치료의 변화</h2>
+
+  <div class="summary-grid">
+    <article class="summary-card">
+      <div class="number">01</div>
+      <h3>mRNA 표적화</h3>
+      <p>파티시란의 siRNA가 TTR mRNA를 표적으로 삼아 분해를 유도한다.</p>
+    </article>
+
+    <article class="summary-card">
+      <div class="number">02</div>
+      <h3>단백질 생성 감소</h3>
+      <p>번역에 사용될 mRNA가 줄어들어 TTR 단백질 생성이 감소한다.</p>
+    </article>
+
+    <article class="summary-card">
+      <div class="number">03</div>
+      <h3>RNA 치료의 가능성</h3>
+      <p>RNA 간섭 기술은 특정 단백질의 생성을 조절하는 치료 전략으로 활용된다.</p>
+    </article>
+  </div>
+
+  <div class="final-box">
+    <span>THE FUTURE OF MEDICINE</span>
+    <h3>유전자를 바꾸는 대신,<br>유전 정보의 흐름을 조절하다.</h3>
+  </div>
+
+  <p class="small-note">
+    파티시란은 유전성 트랜스티레틴 매개 아밀로이드증(hATTR 아밀로이드증)
+    치료에 사용되는 siRNA 기반 약물이다.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <button id="prevButton" class="secondary">← 이전</button>
+
+  <div class="progress-area">
+    <span id="pageNumber">01</span>
+    <div class="progress"><div id="progressBar"></div></div>
+    <span>04</span>
+  </div>
+
+  <button id="nextButton">다음 →</button>
+</footer>
+
+<script>
+/* 발표 슬라이드 이동 */
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+
+const pageNumber = document.getElementById('pageNumber');
+const progressBar = document.getElementById('progressBar');
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
+
+function showSlide(index) {
+  current = Math.max(0, Math.min(index, slides.length - 1));
+
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === current);
+  });
+
+  pageNumber.textContent = String(current + 1).padStart(2, '0');
+  progressBar.style.width =
+    ((current + 1) / slides.length * 100) + '%';
+
+  prevButton.disabled = current === 0;
+  nextButton.disabled = current === slides.length - 1;
+}
+
+prevButton.addEventListener('click', () => showSlide(current - 1));
+nextButton.addEventListener('click', () => showSlide(current + 1));
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'ArrowRight') showSlide(current + 1);
+  if (event.key === 'ArrowLeft') showSlide(current - 1);
+});
+
+/* 시뮬레이션 작동 */
+const simulator = document.getElementById('simulator');
+const runButton = document.getElementById('runButton');
+const resetButton = document.getElementById('resetButton');
+
+const simStatus = document.getElementById('simStatus');
+const mrnaLabel = document.getElementById('mrnaLabel');
+const proteinLabel = document.getElementById('proteinLabel');
+const proteins = document.getElementById('proteins');
+const result = document.getElementById('result');
+
+function runSimulation() {
+  simulator.classList.add('finished');
+
+  simStatus.textContent = '● 작용 완료';
+  mrnaLabel.textContent = 'TTR mRNA 감소';
+  proteinLabel.textContent = '단백질 생성 감소';
+
+  proteins.innerHTML = '<i></i>';
+
+  result.innerHTML = `
+    <strong>SIMULATION COMPLETE</strong>
+    <p>
+      siRNA가 TTR mRNA의 분해를 유도합니다.
+      그 결과 단백질 생성에 사용될 mRNA가 감소하고,
+      TTR 단백질 생성도 감소합니다.
+    </p>
+  `;
+
+  runButton.disabled = true;
+  runButton.textContent = '✓ 작용 완료';
+}
+
+function resetSimulation() {
+  simulator.classList.remove('finished');
+
+  simStatus.textContent = '● 대기 중';
+  mrnaLabel.textContent = 'mRNA 존재';
+  proteinLabel.textContent = '단백질 생성 가능';
+
+  proteins.innerHTML =
+    '<i></i><i></i><i></i><i></i><i></i><i></i><i></i>';
+
+  result.innerHTML = `
+    <strong>READY</strong>
+    <p>약물 작용 실행 버튼을 누르면 결과가 표시됩니다.</p>
+  `;
+
+  runButton.disabled = false;
+  runButton.textContent = '▶ 약물 작용 실행';
+}
+
+runButton.addEventListener('click', runSimulation);
+resetButton.addEventListener('click', resetSimulation);
+
+showSlide(0);
+</script>
+
+</body>
+</html>
