@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PATISIRAN | RNA SILENCE PROJECT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars"></div>
+
+  <header>
+    <div class="logo">◈ BIO<span>FUTURE</span></div>
+    <div class="top-label">RNA SILENCE PROJECT / 2026</div>
+    <div class="live"><span></span> SYSTEM ONLINE</div>
+  </header>
+
+  <main>
+    <!-- 1장: 표지 -->
+    <section class="slide active">
+      <div class="eyebrow">01 / RESEARCH OVERVIEW</div>
+      <div class="hero">
+        <div class="hero-text">
+          <p class="small-title">NEXT-GENERATION RNA THERAPY</p>
+          <h1>PA<span>TISI</span>RAN</h1>
+          <h2>유전자의 메시지를 차단하는 미래 의학</h2>
+          <p class="description">
+            RNA 간섭 기술을 이용해 질병 유발 단백질의 생성을 줄이는
+            차세대 유전자 기반 치료 전략을 탐구한다.
+          </p>
+          <div class="tag-list">
+            <span>RNAi TECHNOLOGY</span>
+            <span>GENETIC MEDICINE</span>
+            <span>FUTURE BIOLOGY</span>
+          </div>
+        </div>
+
+        <div class="dna-visual">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="core">RNA<br><b>i</b></div>
+          <div class="floating f1">mRNA</div>
+          <div class="floating f2">TTR</div>
+          <div class="floating f3">siRNA</div>
+        </div>
+      </div>
+      <div class="bottom-note">BIOLOGICAL INFORMATION CONTROL SYSTEM</div>
+    </section>
+
+    <!-- 2장: 작용 기전 -->
+    <section class="slide">
+      <div class="eyebrow">02 / MECHANISM</div>
+      <h2 class="section-title">질병의 원인이 되는 단백질, 어떻게 줄일까?</h2>
+      <p class="section-desc">
+        파티시란은 siRNA를 이용해 TTR 단백질 생성에 필요한 mRNA를 표적으로 삼는다.
+      </p>
+
+      <div class="process">
+        <div class="process-card">
+          <div class="number">STEP 01</div>
+          <div class="molecule purple">siRNA</div>
+          <h3>표적 전달</h3>
+          <p>지질 나노입자가 siRNA를 간세포로 전달한다.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="process-card">
+          <div class="number">STEP 02</div>
+          <div class="molecule cyan">mRNA</div>
+          <h3>유전 정보 인식</h3>
+          <p>siRNA가 TTR mRNA를 인식하도록 작용한다.</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="process-card">
+          <div class="number">STEP 03</div>
+          <div class="molecule pink">TTR ↓</div>
+          <h3>단백질 생성 감소</h3>
+          <p>표적 mRNA가 분해되어 TTR 단백질 생성이 감소한다.</p>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <span class="info-icon">ⓘ</span>
+        <p>
+          핵심 원리: DNA 자체를 바꾸는 것이 아니라,
+          단백질 생성에 필요한 mRNA를 표적으로 삼는다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3장: 시뮬레이션 -->
+    <section class="slide">
+      <div class="eyebrow">03 / INTERACTIVE SIMULATION</div>
+      <h2 class="section-title">RNA 간섭 시뮬레이션</h2>
+      <p class="section-desc">버튼을 눌러 파티시란의 작용 과정을 확인해 보자.</p>
+
+      <div class="simulation">
+        <div class="sim-status">
+          <span class="live"><span></span> CELL SIMULATOR</span>
+          <span id="simState">대기 중</span>
+        </div>
+
+        <div class="cell">
+          <div class="cell-label">LIVER CELL / 간세포</div>
+
+          <div class="sim-node">
+            <div class="node-icon purple">siRNA</div>
+            <span>파티시란 전달</span>
+          </div>
+
+          <div class="sim-arrow">↓</div>
+
+          <div class="mrna-zone">
+            <div class="node-icon cyan" id="mrnaNode">mRNA</div>
+            <span id="mrnaLabel">TTR mRNA 존재</span>
+          </div>
+
+          <div class="sim-arrow">↓</div>
+
+          <div class="protein-zone">
+            <div class="protein-particles" id="proteinParticles">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span id="proteinLabel">TTR 단백질 생성</span>
+          </div>
+        </div>
+
+        <div class="sim-controls">
+          <button id="runSim">▶ 약물 작용 실행</button>
+          <button id="resetSim" class="secondary">↻ 초기화</button>
+        </div>
+
+        <div class="sim-result" id="simResult">
+          <strong>READY</strong>
+          <p>약물 작용 실행 버튼을 눌러 결과를 확인하세요.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4장: 결론 -->
+    <section class="slide">
+      <div class="eyebrow">04 / CONCLUSION</div>
+      <h2 class="section-title">유전 정보 조절에서 시작되는 치료의 변화</h2>
+
+      <div class="conclusion-grid">
+        <div class="conclusion-card">
+          <span class="big-number">01</span>
+          <h3>표적 mRNA 감소</h3>
+          <p>siRNA가 TTR mRNA를 표적으로 삼아 분해를 유도한다.</p>
+        </div>
+        <div class="conclusion-card">
+          <span class="big-number">02</span>
+          <h3>단백질 생성 감소</h3>
+          <p>mRNA가 줄어들면서 TTR 단백질의 생성도 감소한다.</p>
+        </div>
+        <div class="conclusion-card">
+          <span class="big-number">03</span>
+          <h3>RNA 치료의 가능성</h3>
+          <p>유전 정보의 발현 과정을 조절하는 기술이 실제 치료에 활용된다.</p>
+        </div>
+      </div>
+
+      <div class="final-message">
+        <span>THE FUTURE OF MEDICINE</span>
+        <h3>유전자를 바꾸는 대신,<br>유전 정보의 흐름을 조절하다.</h3>
+      </div>
+      <p class="disclaimer">
+        본 시뮬레이션은 파티시란의 작용 원리를 단순화한 교육용 모형이다.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <button id="prevBtn">← 이전</button>
+    <div class="progress-area">
+      <span id="pageNumber">01</span>
+      <div class="progress"><div id="progressBar"></div></div>
+      <span>04</span>
+    </div>
+    <button id="nextBtn">다음 →</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
